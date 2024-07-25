@@ -44,18 +44,12 @@ if (session_id() != $_SESSION['sess_id']) {
 
 <body>
   <ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#news">News</a></li>
+    <li><a class="active" href="index.php">Home</a></li>
+    <li><a href="register.php">All user</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#about">About</a></li>
     <li style="float:right">
-      <?php
-      if (isset($_SESSION['session_id'])) {
-      ?>
-        <a class="active" href="#">Logout</a>
-      <?php } else { ?>
-        <a class="active" href="logout.php">Login</a>
-      <?php } ?>
+      <a class="active" href="logout.php">Logout</a>
     </li>
   </ul>
 </body>
