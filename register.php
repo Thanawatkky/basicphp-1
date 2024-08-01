@@ -83,7 +83,7 @@
   ?>
   <h3>แก้ไขข้อมูลผู้ใช้</h3>
   <div>
-    <form action="api/api_register.php" method="post">
+    <form action="api/api_edituser.php?user_id=<?php echo $fet->user_id; ?>" method="post">
       <label for="username">Username</label>
       <input type="text" id="fname" value="<?php echo $fet->username; ?>" name="username" placeholder="Your username..">
 

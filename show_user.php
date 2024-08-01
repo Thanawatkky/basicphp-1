@@ -80,7 +80,7 @@ ul {
     </li>
   </ul>
 <h1>A Fancy Table</h1>
-
+<a href="register.php" class="button">ADD</a>
 <table id="customers">
   <tr>
     <th>#</th>
@@ -104,7 +104,10 @@ ul {
     <td><?php echo $fet_user->fullname; ?></td>
     <td><?php echo $fet_user->email; ?></td>
     <td><?php echo $fet_user->phone; ?></td>
-    <td><a href="register.php?user_id=<?php echo $fet_user->user_id;?>" class="button">Edit</a></td>
+    <td>
+      <a href="register.php?user_id=<?php echo $fet_user->user_id;?>" class="button">Edit</a>
+      <a href="api/api_deluser.php?user_id=<?php echo $fet_user->user_id;?>" class="button" style="background-color: red;" onclick="return confirm('คุณต้องการลบรายการนี้ใช่ไหม?')">Del</a>
+    </td>
   </tr>
   <?php } ?>
 </table>
