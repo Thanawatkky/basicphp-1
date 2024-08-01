@@ -1,3 +1,6 @@
+<?php 
+  include 'connect.php';
+?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -72,10 +75,39 @@
       <a class="active" href="logout.php">Logout</a>
     </li>
   </ul>
-
-  <h3>Using CSS to style an HTML Form</h3>
-
+  <?php
+    if(isset($_REQUEST['user_id'])) {
+      $sql = "SELECT * FROM tb_user WHERE user_id='".$_REQUEST['user_id']."' ";
+      $query = $conn->query($sql);
+      $fet = $query->fetch_object();
+  ?>
+  <h3>แก้ไขข้อมูลผู้ใช้</h3>
   <div>
+    <form action="api/api_register.php" method="post">
+      <label for="username">Username</label>
+      <input type="text" id="fname" value="<?php echo $fet->username; ?>" name="username" placeholder="Your username..">
+
+      <label for="password">Password</label>
+      <input type="password" id="lname" value="<?php echo $fet->password; ?>" name="password" placeholder="Your password..">
+
+      <label for="fullname">fullname</label>
+      <input type="text" id="lname" name="fullname" value="<?php echo $fet->fullname; ?>" placeholder="Your fullname..">
+
+      <label for="phone">Phone number</label>
+      <input type="tel" id="lname" name="phone" value="<?php echo $fet->phone; ?>" placeholder="Your phone number..">
+
+      <label for="email">Email</label>
+      <input type="email" id="lname" name="email" value="<?php echo $fet->email; ?>" placeholder="Your email..">
+
+      <label for="linetoken">Line Token</label>
+      <input type="text" id="lname" name="linetoken" value="<?php echo $fet->linetoken; ?>" placeholder="Your linetoken..">
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+    <?php }else{ ?>
+      <h3>เพิ่มผู้ใช้งาน</h3>
+      <div>
     <form action="api/api_register.php" method="post">
       <label for="username">Username</label>
       <input type="text" id="fname" name="username" placeholder="Your username..">
@@ -98,6 +130,8 @@
       <input type="submit" value="Submit">
     </form>
   </div>
+      <?php } ?>
+  
 
 </body>
 

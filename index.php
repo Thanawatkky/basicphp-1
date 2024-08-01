@@ -45,7 +45,7 @@ if (session_id() != $_SESSION['sess_id']) {
 <body>
   <ul>
     <li><a class="active" href="index.php">Home</a></li>
-    <li><a href="register.php">All user</a></li>
+    <li><a href="show_user.php">All user</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#about">About</a></li>
     <li style="float:right">
